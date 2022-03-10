@@ -10,6 +10,12 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.EcommerceFirebaseAndroidMaster">
         <activity
+            android:name=".ui.HomeActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ui.AdminPrincipalActivity"
+            android:exported="false" />
+        <activity
             android:name=".ui.CadastrarActivity"
             android:exported="false" />
         <activity

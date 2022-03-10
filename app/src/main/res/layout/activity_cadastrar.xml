@@ -34,7 +34,7 @@
 
 
         <EditText
-            android:id="@+id/register_username_input"
+            android:id="@+id/registrar_entrada_usuarionome"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="25dp"
@@ -52,7 +52,7 @@
             android:background="#b9b9b9" />
 
         <EditText
-            android:id="@+id/register_phone_number_input"
+            android:id="@+id/registrar_entrada_numero_telefone"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="30dp"
@@ -71,7 +71,7 @@
             android:background="#b9b9b9" />
 
         <EditText
-            android:id="@+id/register_password_input"
+            android:id="@+id/registrar_entrada_senha"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="30dp"
@@ -89,7 +89,7 @@
             android:background="#b9b9b9" />
 
         <Button
-            android:id="@+id/btn_register"
+            android:id="@+id/btn_registrar"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="50dp"

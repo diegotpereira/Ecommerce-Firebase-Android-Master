@@ -3,8 +3,10 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/administrator/AndroidStudioProjects/EcommerceFirebaseAndroidMaster/app/src/main/res/layout/activity_admin_principal.xml" value="0.2644927536231884" />
         <entry key="..\:/Users/administrator/AndroidStudioProjects/EcommerceFirebaseAndroidMaster/app/src/main/res/layout/activity_cadastrar.xml" value="0.14270833333333333" />
         <entry key="..\:/Users/administrator/AndroidStudioProjects/EcommerceFirebaseAndroidMaster/app/src/main/res/layout/activity_entrar.xml" value="0.14270833333333333" />
+        <entry key="..\:/Users/administrator/AndroidStudioProjects/EcommerceFirebaseAndroidMaster/app/src/main/res/layout/activity_home.xml" value="0.2644927536231884" />
         <entry key="..\:/Users/administrator/AndroidStudioProjects/EcommerceFirebaseAndroidMaster/app/src/main/res/layout/activity_main.xml" value="0.1" />
       </map>
     </option>
