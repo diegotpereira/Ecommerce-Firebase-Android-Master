@@ -10,18 +10,25 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.LayoutInflater;
+import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.firebase.ui.database.FirebaseRecyclerAdapter;
+import com.firebase.ui.database.FirebaseRecyclerOptions;
 import com.google.android.material.navigation.NavigationView;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.squareup.picasso.Picasso;
 
 import br.com.ecommerce_firebase_android_master.R;
+import br.com.ecommerce_firebase_android_master.model.Produto;
 import br.com.ecommerce_firebase_android_master.prevalente.Prevalente;
+import br.com.ecommerce_firebase_android_master.view.ProdutoExibir;
 import de.hdodenhof.circleimageview.CircleImageView;
 import io.paperdb.Paper;
 
@@ -76,6 +83,62 @@ public class PrincipalActivity extends AppCompatActivity
         recyclerView.setHasFixedSize(true);
         layoutManager = new LinearLayoutManager(this);
         recyclerView.setLayoutManager(layoutManager);
+    }
+
+    @Override
+    protected void onStart() {
+        super.onStart();
+
+        FirebaseRecyclerOptions<Produto> opcoes =
+                new FirebaseRecyclerOptions.Builder<Produto>()
+                .setQuery(produtosRef, Produto.class)
+                .build();
+        FirebaseRecyclerAdapter<Produto, ProdutoExibir> adapter =
+                new FirebaseRecyclerAdapter<Produto, ProdutoExibir>(opcoes) {
+                    @Override
+                    protected void onBindViewHolder(@NonNull ProdutoExibir holder, int i, @NonNull final Produto produto) {
+                        holder.txtProdutoNome.setText(produto.getPnome());
+                        holder.txtProdutoDescricao.setText(produto.getDescricao());
+                        holder.txtProdutoPreco.setText(produto.getPreco());
+
+                        Picasso.get().load(produto.getImagem()).into(holder.imagemExibir);
+
+                        holder.itemView.setOnClickListener(new View.OnClickListener() {
+                            @Override
+                            public void onClick(View view) {
+
+                            }
+                        });
+                    }
+
+                    @NonNull
+                    @Override
+                    public ProdutoExibir onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+
+                        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.produtos_layout, parent, false);
+                        ProdutoExibir holder = new ProdutoExibir(view);
+                        return holder;
+                    }
+                };
+        recyclerView.setAdapter(adapter);
+        adapter.startListening();
+    }
+
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.principal, menu);
+
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+        return super.onOptionsItemSelected(item);
     }
 
     @Override
