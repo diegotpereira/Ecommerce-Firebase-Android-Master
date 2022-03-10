@@ -1,3 +1,6 @@
 <resources>
     <string name="app_name">Ecommerce-Firebase-Android-Master</string>
+
+    <string name="navegacao_drawer_abrir">Abra a janela de navegação</string>
+    <string name="navegacao_drawer_fechar">Fechar janela de navegação</string>
 </resources>

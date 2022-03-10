@@ -120,7 +120,7 @@ public class EntrarActivity extends AppCompatActivity {
                                 carregarBar.dismiss();
                                 Prevalente.atualUsuarioOnline = usuarioDado;
 
-                                Intent homeAcitivity = new Intent(EntrarActivity.this, HomeActivity.class);
+                                Intent homeAcitivity = new Intent(EntrarActivity.this, PrincipalActivity.class);
                                 startActivity(homeAcitivity);
                             }
                         }

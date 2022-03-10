@@ -6,11 +6,11 @@ import android.os.Bundle;
 
 import br.com.ecommerce_firebase_android_master.R;
 
-public class HomeActivity extends AppCompatActivity {
+public class CartaoActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_home);
+        setContentView(R.layout.activity_cartao);
     }
 }

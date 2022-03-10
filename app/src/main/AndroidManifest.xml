@@ -8,9 +8,12 @@
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/Theme.EcommerceFirebaseAndroidMaster">
+        android:theme="@style/AppTheme">
         <activity
-            android:name=".ui.HomeActivity"
+            android:name=".ui.CartaoActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ui.PrincipalActivity"
             android:exported="false" />
         <activity
             android:name=".ui.AdminPrincipalActivity"
