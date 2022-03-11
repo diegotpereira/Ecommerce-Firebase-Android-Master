@@ -1,9 +1,41 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".ui.AdminPrincipalActivity">
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+    <Button
+        android:id="@+id/btn_add_produto"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="15dp"
+        android:background="@drawable/gradient"
+        android:text="Ajouter un produit"
+        android:textSize="20dp"
+        android:textAllCaps="false"/>
+
+
+    <Button
+        android:id="@+id/btn_comando"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/btn_add_produto"
+        android:layout_margin="15dp"
+        android:background="@drawable/gradient"
+        android:text="Liste des commandes"
+        android:textSize="18dp"
+        android:textAllCaps="false"/>
+
+    <Button
+        android:id="@+id/btn_sair_admin"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/btn_comando"
+        android:layout_margin="15dp"
+        android:background="@drawable/gradient"
+        android:text="Se déconnecter"
+        android:textSize="20dp"
+        android:textAllCaps="false"/>
+</RelativeLayout>

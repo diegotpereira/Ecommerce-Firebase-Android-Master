@@ -59,6 +59,7 @@ public class EntrarActivity extends AppCompatActivity {
         btn_entrar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+
                 entrarUsuario();
             }
         });
