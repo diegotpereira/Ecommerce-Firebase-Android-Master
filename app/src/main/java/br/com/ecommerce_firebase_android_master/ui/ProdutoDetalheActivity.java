@@ -12,6 +12,8 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.cepheuen.elegantnumberbutton.view.ElegantNumberButton;
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -21,8 +23,13 @@ import com.squareup.picasso.Picasso;
 
 import org.w3c.dom.Text;
 
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.HashMap;
+
 import br.com.ecommerce_firebase_android_master.R;
 import br.com.ecommerce_firebase_android_master.model.Produto;
+import br.com.ecommerce_firebase_android_master.prevalente.Prevalente;
 
 public class ProdutoDetalheActivity extends AppCompatActivity {
 
@@ -76,9 +83,51 @@ public class ProdutoDetalheActivity extends AppCompatActivity {
     protected void onStart() {
         super.onStart();
 
-        meuComando();
+        meusPedidos();
     }
-    private void addNoCartao() {}
+    private void addNoCartao() {
+        String salvarAtualData;
+        String salvarAtualHora;
+
+        Calendar calendario = Calendar.getInstance();
+        SimpleDateFormat atualData = new SimpleDateFormat("dd/MM/yyyy");
+        salvarAtualData = atualData.format(calendario.getTime());
+
+        SimpleDateFormat atualHora = new SimpleDateFormat("HH:mm:ss a");
+        salvarAtualHora = atualHora.format(calendario.getTime());
+
+        final DatabaseReference cartaoListaRef = FirebaseDatabase.getInstance().getReference().child("Cartao Lista");
+
+        final HashMap<String, Object> cartaoMapa = new HashMap<>();
+        cartaoMapa.put("pid", produtoID);
+        cartaoMapa.put("pnome", produtoNome.getText().toString());
+        cartaoMapa.put("preco", produtoPreco.getText().toString());
+        cartaoMapa.put("data", salvarAtualData);
+        cartaoMapa.put("hora", salvarAtualHora);
+        cartaoMapa.put("quantidade", numeroBotao.getNumber());
+        cartaoMapa.put("desconto", "");
+
+        cartaoListaRef.child("Usuario Exibir").child(Prevalente.atualUsuarioOnline.getTelefone()).child("Produtos").child(produtoID)
+                .updateChildren(cartaoMapa).addOnCompleteListener(new OnCompleteListener<Void>() {
+            @Override
+            public void onComplete(@NonNull Task<Void> task) {
+                if (task.isSuccessful()) {
+                    cartaoListaRef.child("Admin Exibir").child(Prevalente.atualUsuarioOnline.getTelefone()).child("Produtos").child(produtoID)
+                            .updateChildren(cartaoMapa).addOnCompleteListener(new OnCompleteListener<Void>() {
+                        @Override
+                        public void onComplete(@NonNull Task<Void> task) {
+                            if (task.isSuccessful()) {
+                                Toast.makeText(ProdutoDetalheActivity.this, "Produto adicionado ao carrinho de compras", Toast.LENGTH_SHORT).show();
+
+                                Intent intentPrincipal = new Intent(ProdutoDetalheActivity.this, PrincipalActivity.class);
+                                startActivity(intentPrincipal);
+                            }
+                        }
+                    });
+                }
+            }
+        });
+    }
 
     private void getProdutoDetalhes(String produtoID) {
         DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReference().child("Produtos");
@@ -103,5 +152,30 @@ public class ProdutoDetalheActivity extends AppCompatActivity {
         });
     }
 
-    private void meuComando() {}
+    private void meusPedidos() {
+
+        DatabaseReference dadosRef;
+        dadosRef = FirebaseDatabase.getInstance().getReference().child("Pedidos").child(Prevalente.atualUsuarioOnline.getTelefone());
+
+        dadosRef.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                if (snapshot.exists()) {
+
+                    String estado = snapshot.child("estado").getValue().toString();
+
+                    if (estado.equals("livre")) {
+                        estado = "livre";
+                    } else if(estado.equals("nao livre")) {
+                        estado = "nao livre";
+                    }
+                }
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+
+            }
+        });
+    }
 }

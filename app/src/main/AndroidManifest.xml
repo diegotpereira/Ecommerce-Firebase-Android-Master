@@ -10,6 +10,12 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
+            android:name=".ui.AdminDisplayActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ui.FinalActivity"
+            android:exported="false" />
+        <activity
             android:name=".ui.ProdutoDetalheActivity"
             android:exported="false" />
         <activity
