@@ -12,7 +12,7 @@
         android:layout_height="wrap_content"
         android:layout_margin="15dp"
         android:background="@drawable/gradient"
-        android:text="Ajouter un produit"
+        android:text="Adicionar um produto"
         android:textSize="20dp"
         android:textAllCaps="false"/>
 
@@ -24,7 +24,7 @@
         android:layout_below="@+id/btn_add_produto"
         android:layout_margin="15dp"
         android:background="@drawable/gradient"
-        android:text="Liste des commandes"
+        android:text="Lista de pedidos"
         android:textSize="18dp"
         android:textAllCaps="false"/>
 
@@ -35,7 +35,7 @@
         android:layout_below="@+id/btn_comando"
         android:layout_margin="15dp"
         android:background="@drawable/gradient"
-        android:text="Se déconnecter"
+        android:text="Desconectar"
         android:textSize="20dp"
         android:textAllCaps="false"/>
 </RelativeLayout>
