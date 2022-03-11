@@ -106,7 +106,9 @@ public class PrincipalActivity extends AppCompatActivity
                         holder.itemView.setOnClickListener(new View.OnClickListener() {
                             @Override
                             public void onClick(View view) {
-
+                                Intent intentProdutoDetalhe = new Intent(PrincipalActivity.this, ProdutoDetalheActivity.class);
+                                intentProdutoDetalhe.putExtra("pid", produto.getPid());
+                                startActivity(intentProdutoDetalhe);
                             }
                         });
                     }
@@ -138,6 +140,8 @@ public class PrincipalActivity extends AppCompatActivity
 
     @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+        int id = item.getItemId();
+
         return super.onOptionsItemSelected(item);
     }
 
