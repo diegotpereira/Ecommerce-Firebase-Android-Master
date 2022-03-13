@@ -10,6 +10,9 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
+            android:name=".ui.AdminPedidoActivity"
+            android:exported="false" />
+        <activity
             android:name=".ui.AdminDisplayActivity"
             android:exported="false" />
         <activity

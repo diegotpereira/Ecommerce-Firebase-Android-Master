@@ -58,7 +58,7 @@
             <ImageView
                 android:layout_width="30dp"
                 android:layout_height="28dp"
-                android:src="@drawable/ic_british_pound_symbol"
+                android:src="@drawable/ic_modeda_brasileira"
                 android:layout_marginTop="10dp"/>
             <TextView
                 android:id="@+id/total"

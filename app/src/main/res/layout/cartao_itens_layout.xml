@@ -57,7 +57,7 @@
                 android:layout_width="12dp"
                 android:layout_height="12dp"
                 android:layout_marginTop="4dp"
-                android:src="@drawable/ic_british_pound_symbol"/>
+                android:src="@drawable/ic_modeda_brasileira"/>
             <TextView
                 android:id="@+id/cartao_produto_preco"
                 android:layout_width="wrap_content"

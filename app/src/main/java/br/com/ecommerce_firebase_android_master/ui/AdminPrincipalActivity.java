@@ -33,5 +33,21 @@ public class AdminPrincipalActivity extends AppCompatActivity {
                  finish();
              }
          });
+         btn_exibirComando.setOnClickListener(new View.OnClickListener() {
+             @Override
+             public void onClick(View view) {
+                 Intent intentPedidos = new Intent(AdminPrincipalActivity.this, AdminPedidoActivity.class);
+                 startActivity(intentPedidos);
+             }
+         });
+         btn_sair.setOnClickListener(new View.OnClickListener() {
+             @Override
+             public void onClick(View view) {
+                 Intent intentPrincipal = new Intent(AdminPrincipalActivity.this, PrincipalActivity.class);
+                 intentPrincipal.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+                 startActivity(intentPrincipal);
+                 finish();
+             }
+         });
     }
 }
