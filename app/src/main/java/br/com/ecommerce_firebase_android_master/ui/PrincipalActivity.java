@@ -147,6 +147,16 @@ public class PrincipalActivity extends AppCompatActivity
 
     @Override
     public boolean onNavigationItemSelected(@NonNull MenuItem item) {
-        return false;
+
+        int id = item.getItemId();
+
+        if (id == R.id.nav_carrinho) {
+
+        } else if(id == R.id.nav_configuracoes) {
+            Intent intentConfig = new Intent(PrincipalActivity.this,
+                    ConfiguracoesActivity.class);
+            startActivity(intentConfig);
+        }
+        return true;
     }
 }
