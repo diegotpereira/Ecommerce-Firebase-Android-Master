@@ -42,7 +42,7 @@
             android:iconTint="@android:color/white" />
 
         <item
-            android:id="@+id/nav_logout"
+            android:id="@+id/nav_sair"
             android:icon="@drawable/logout"
             android:title="Sair"
             android:iconTint="@android:color/white"/>

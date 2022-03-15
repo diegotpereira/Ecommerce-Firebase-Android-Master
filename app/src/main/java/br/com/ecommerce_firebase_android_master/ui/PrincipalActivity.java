@@ -4,6 +4,7 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
+import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -156,7 +157,17 @@ public class PrincipalActivity extends AppCompatActivity
             Intent intentConfig = new Intent(PrincipalActivity.this,
                     ConfiguracoesActivity.class);
             startActivity(intentConfig);
+        } else if(id == R.id.nav_sair) {
+            Paper.book().destroy();
+
+            Intent intentSair = new Intent(PrincipalActivity.this, MainActivity.class);
+            intentSair.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+            startActivity(intentSair);
+            finish();
         }
+        DrawerLayout drawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout);
+        drawerLayout.closeDrawer(GravityCompat.START);
+
         return true;
     }
 }
