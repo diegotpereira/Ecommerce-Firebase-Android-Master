@@ -157,7 +157,40 @@ public class PrincipalActivity extends AppCompatActivity
             Intent intentConfig = new Intent(PrincipalActivity.this,
                     ConfiguracoesActivity.class);
             startActivity(intentConfig);
-        } else if(id == R.id.nav_sair) {
+
+        } else if (id == R.id.nav_buscar) {
+            Intent intentBuscar = new Intent(PrincipalActivity.this, PesquisarProdutoActivity.class);
+            startActivity(intentBuscar);
+
+        } else if (id == R.id.nav_laptop) {
+            Intent intentComputador = new Intent(PrincipalActivity.this, CategoriaEspecActivity.class);
+            intentComputador.putExtra("categoria", "Computadores");
+            startActivity(intentComputador);
+            finish();
+
+        }else if (id == R.id.nav_smartphone) {
+            Intent intentComputador = new Intent(PrincipalActivity.this, CategoriaEspecActivity.class);
+            intentComputador.putExtra("categoria", "Smartphones");
+            startActivity(intentComputador);
+            finish();
+
+        }else if (id == R.id.nav_roupas) {
+            Intent intentComputador = new Intent(PrincipalActivity.this, CategoriaEspecActivity.class);
+            intentComputador.putExtra("categoria", "Roupas");
+            startActivity(intentComputador);
+            finish();
+
+        }else if (id == R.id.nav_sapatos) {
+            Intent intentComputador = new Intent(PrincipalActivity.this, CategoriaEspecActivity.class);
+            intentComputador.putExtra("categoria", "Sapatos");
+            startActivity(intentComputador);
+            finish();
+
+        }else if (id == R.id.nav_configuracoes) {
+            Intent intentConfig = new Intent(PrincipalActivity.this, ConfiguracoesActivity.class);
+            startActivity(intentConfig);
+
+        }if(id == R.id.nav_sair) {
             Paper.book().destroy();
 
             Intent intentSair = new Intent(PrincipalActivity.this, MainActivity.class);

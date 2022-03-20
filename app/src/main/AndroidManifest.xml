@@ -10,6 +10,12 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
+            android:name=".ui.CategoriaEspecActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ui.PesquisarProdutoActivity"
+            android:exported="false" />
+        <activity
             android:name=".ui.ConfiguracoesActivity"
             android:exported="false" />
         <activity
