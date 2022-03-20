@@ -55,7 +55,8 @@ public class AdminPedidoActivity extends AppCompatActivity {
     protected void onStart() {
         super.onStart();
 
-        FirebaseRecyclerOptions<Pedido> opcoes = new FirebaseRecyclerOptions.Builder<Pedido>().setQuery(pedidoRef, Pedido.class)
+        FirebaseRecyclerOptions<Pedido> opcoes = new FirebaseRecyclerOptions.Builder<Pedido>()
+                .setQuery(pedidoRef, Pedido.class)
                 .build();
         FirebaseRecyclerAdapter<Pedido, PedidoExibir> adapter = new FirebaseRecyclerAdapter<Pedido, PedidoExibir>(opcoes) {
             @Override

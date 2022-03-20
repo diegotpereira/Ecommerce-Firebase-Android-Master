@@ -31,6 +31,7 @@ public class PesquisarProdutoActivity extends AppCompatActivity {
     private RecyclerView pesquisarLista;
     private String entradaPesquisa;
     private ImageView fer;
+    DatabaseReference dataRef;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -38,9 +39,12 @@ public class PesquisarProdutoActivity extends AppCompatActivity {
         setContentView(R.layout.activity_pesquisar_produto);
 
         entradaTexto = (EditText) findViewById(R.id.produto_pesquisar);
-        btn_pesquisar = (Button) findViewById(R.id.btn_pesquisar);
+        btn_pesquisar = (Button) findViewById(R.id.btn_pesc);
+
+        dataRef = FirebaseDatabase.getInstance().getReference().child("Produtos");
         pesquisarLista = findViewById(R.id.pesquisar_lista);
-        pesquisarLista.setLayoutManager(new LinearLayoutManager(PesquisarProdutoActivity.this));
+
+        pesquisarLista.setLayoutManager(new LinearLayoutManager(this));
         fer = (ImageView) findViewById(R.id.fer);
 
         fer.setOnClickListener(new View.OnClickListener() {
@@ -54,6 +58,7 @@ public class PesquisarProdutoActivity extends AppCompatActivity {
         btn_pesquisar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+
                 entradaPesquisa = entradaTexto.getText().toString();
             }
         });
@@ -63,14 +68,14 @@ public class PesquisarProdutoActivity extends AppCompatActivity {
     protected void onStart() {
         super.onStart();
 
-        DatabaseReference dataRef = FirebaseDatabase.getInstance().getReference().child("Produtos");
+
 
         FirebaseRecyclerOptions<Produto> opcoes = new FirebaseRecyclerOptions.Builder<Produto>()
                 .setQuery(dataRef.orderByChild("pnome").startAt(entradaPesquisa).endAt(entradaPesquisa), Produto.class).build();
 
         FirebaseRecyclerAdapter<Produto, ProdutoExibir> adapter = new FirebaseRecyclerAdapter<Produto, ProdutoExibir>(opcoes) {
             @Override
-            protected void onBindViewHolder(@NonNull ProdutoExibir holder, int i, @NonNull Produto produto) {
+            protected void onBindViewHolder(@NonNull ProdutoExibir holder, int position, @NonNull final Produto produto) {
                 holder.txtProdutoNome.setText(produto.getPnome());
                 holder.txtProdutoDescricao.setText(produto.getDescricao());
                 holder.txtProdutoPreco.setText(produto.getPreco());

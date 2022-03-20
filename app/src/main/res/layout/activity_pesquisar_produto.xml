@@ -29,14 +29,14 @@
             android:id="@+id/produto_pesquisar"
             android:layout_width="250dp"
             android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="50dp"
             android:background="#00000000"
             android:fontFamily="@font/roboto_light"
-            android:hint="Numéro de téléphone"
+            android:hint="Número de telefone"
             android:inputType="text"
             android:textColor="@color/black"
-            android:textColorHint="@color/black"
-            android:layout_marginLeft="50dp"
-            android:layout_centerVertical="true"/>
+            android:textColorHint="@color/black" />
 
         <View
             android:layout_width="250dp"
@@ -47,14 +47,14 @@
 
 
         <Button
-            android:id="@+id/btn_pesquisar"
+            android:id="@+id/btn_pesc"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_toRightOf="@+id/produto_pesquisar"
-            android:text="Recherche"
             android:layout_alignParentRight="true"
             android:layout_centerVertical="true"
-            android:layout_marginLeft="30dp"/>
+            android:layout_marginLeft="30dp"
+            android:layout_toRightOf="@+id/produto_pesquisar"
+            android:text="Pesquisa" />
 
     </RelativeLayout>
 
